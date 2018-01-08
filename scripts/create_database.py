@@ -2,6 +2,7 @@ import pymysql.cursors
 import os
 import codecs
 import csv
+from random import randint
 
 user = ''
 password = ''
@@ -39,8 +40,8 @@ for folder_name in folders:
 		file_object.close()
 		try:
 		    with connection.cursor() as cursor:
-		        sql = "INSERT INTO `noticias` (`titulo`, `subtitulo`, `articulo`) VALUES (%s, %s, %s)"
-		        cursor.execute(sql, (titulo, subtitulo, articulo))
+		        sql = "INSERT INTO `noticias` (`titulo`, `subtitulo`, `articulo`, `contador`) VALUES (%s, %s, %s, %s)"
+		        cursor.execute(sql, (titulo, subtitulo, articulo, randint(0, 50)))
 		    connection.commit()
 		    file_object.close()
 		except:

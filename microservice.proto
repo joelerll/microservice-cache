@@ -1,0 +1,52 @@
+//  https://developers.google.com/protocol-buffers/docs/overview
+
+// message Person {
+//   string name = 1;
+//   int32 id = 2;
+//   bool has_ponycopter = 3;
+// }
+
+// message Noticia {
+// 	string id = 1;
+// 	string titulo  = 2;
+// 	string subtitulo  = 3;
+// 	string articulo  = 4;
+// 	int32 contador = 5;
+// }
+// python -m grpc_tools.protoc --python_out=prueba --grpc_python_out=prueba prueba.proto
+// python -m grpc_tools.protoc  --python_out=prueba --proto_path=prueba prueba.proto
+// python -m grpc_tools.protoc -I. --python_out=microservice --grpc_python_out=microservice microservice.proto
+
+syntax = "proto3";
+
+package noticias;
+
+// The greeting service definition.
+service Noticias {
+  // Sends a greeting
+  rpc ListaTopNoticias (NoticiaRequest) returns (stream NoticiaReply) {}
+  rpc Ping (PingRequest) returns (PingReply) {}
+}
+
+// The request message containing the user's name.
+message NoticiaRequest {
+  string tipoNoticia = 1;
+
+}
+
+// The response message containing the greetings
+message NoticiaReply {
+  int32 id = 1;
+  string titulo = 2;
+  string subtitulo = 3;
+  string articulo  = 4;
+  int32 contador = 5;
+}
+
+message PingRequest {
+	string message = 1;
+}
+
+message PingReply {
+	string message = 1;
+}

@@ -3,3 +3,9 @@ dataset/*
 !dataset/.gitkeep
 .python/*
 prueba.py
+.redis/*
+.thrift/*
+gen-*
+.grpc/
+grpc-python/
+__pycache__

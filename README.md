@@ -1,5 +1,12 @@
 # Proyecto Segundo Parcial Sistemas Distribuidos
 
+# Dependencias
+
+* Ubuntu 16.04
+* Mysql 5.7
+* Redis 4.0.6
+
+
 # Instalación
 
 Ubuntu 16.04
@@ -59,6 +66,12 @@ localhost,usuario_base_datos,clave_base_datos,distribuidos
 > python scripts/create_database.py
 ```
 
+7. Correr redis
+
+```sh
+> ./redis-server --daemonize yes
+```
+
 # Development
 
 __Actualizar las depencias de python__
@@ -74,9 +87,10 @@ __Actualizar las depencias de python__
 | script instalacion dependecias o docker (Makefile) |   |   |   |
 | almacenar noticias en base de datos (dataset), con contadores de acceso (Mysql) [D1](https://archive.ics.uci.edu/ml/datasets/News+Aggregator) [D2](http://mlg.ucd.ie/datasets/bbc.html)  | x |   |   |
 | html front web |   |   |   |
-| almacenamiento en cache de noticias (redis, Memcached) (facil cambio de cache a sin cache) |   |   |   |
+| almacenamiento en cache de noticias redis |  x |   |   |
+| microservicio enpoint sin cache, limpiado de cache, limit time redis noticias |  |   |   |
 | Reverse Proxy/ Api gateway (Nginx, nodejs)  |   |   |   |
-| RPC (Apache Thrift o gRPC+protobuf)  |   |   |   |
+| gRPC+protobuf  | x |   |   |
 | Setup AWS  |   |   |   |
 | bot generador de peticiones y guardar datos en archivo (latencia, througthput) o herramienta de benchmarking |   |   |   |
 | generador de graficas boxplot  |   |   |   |
