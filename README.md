@@ -5,6 +5,8 @@
 * Ubuntu 16.04
 * Mysql 5.7
 * Redis 4.0.6
+* nodejs >= 9.0.0
+* python3
 
 
 # Instalación
@@ -90,7 +92,7 @@ __Actualizar las depencias de python__
 | almacenamiento en cache de noticias redis |  x |   |   |
 | microservicio enpoint sin cache, limpiado de cache, limit time redis noticias |  |   |   |
 | Api gateway nodejs  |  x |   |   |
-| Nginx  |  |   |   |
+| Nginx config file  | x |   |   |
 | gRPC+protobuf  | x |   |   |
 | Setup AWS  |   |   |   |
 | bot generador de peticiones y guardar datos en archivo (latencia, througthput) o herramienta de benchmarking |   |   |   |

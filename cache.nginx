@@ -1,5 +1,9 @@
+#http://blog.argteam.com/coding/hardening-node-js-for-production-part-2-using-nginx-to-avoid-node-js-load/
+#https://www.nginx.com/resources/admin-guide/serving-static-content/
+#https://www.nginx.com/resources/wiki/start/topics/tutorials/install/
+#https://www.linode.com/docs/web-servers/nginx/how-to-configure-nginx/
 upstream nodejs {
-    server localhost:8000;
+    server localhost:3000;
 }
 #http://blog.argteam.com/coding/hardening-node-js-for-production-part-2-using-nginx-to-avoid-node-js-load/
 #https://www.nginx.com/resources/admin-guide/serving-static-content/
@@ -9,49 +13,12 @@ server {
     listen 80;
     include /etc/nginx/mime.types;
     #server_name localhost;
-    root /home/joelerll/pasantias/espol-ppl;
+    root /home/joelerll/espol/sistemas_distribuidos/proyecto; # cambiar por la direccion de la carpeta del proyecto
 
-
-	location ~ ^/(bower_components/|js/|img/|css/) {
- 	   root /home/joelerll/pasantias/espol-ppl/public;
-        access_log off;
-    	expires max;
-	}
-
-	location ~ ^/(scripts/) {
-        access_log off;
-    	expires max;
-	}
-
-	# estudiantes single page
-	location ~ ^/(app_client/estudiantes/dist/) {
-		access_log off;
-    	expires max;
-	}
-
-	# estudiantes perfil
-	location ~ ^/(app_client/estudiantes/perfil/) {
-		access_log off;
-	   	expires max;
-	}
-
-	# estudiantes tomar leccion
-	location ~ ^/(app_client/estudiantes/tomar-leccion/) {
-		access_log off;
-	   	expires max;
-	}
-
-	#estudiante leccion
-	location ~ ^/(app_client/estudiantes/leccion/) {
-		access_log off;
-	   	expires max;
-	}
-
-	 location ~* \.(ico)$ {
-   		 expires 168h;
-    
-  	}
-
+    location ~ ^/(web/) {
+            access_log off;
+            expires max;
+    }
     location / {
         proxy_redirect off;
         proxy_http_version 1.1;
@@ -65,6 +32,6 @@ server {
     }
 
     location api/ {
-    	expires max;
+        expires max;
     }
 }

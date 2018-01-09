@@ -45,3 +45,6 @@ make
 make check
 cd .thrift/lib/py
 sudo python setup.py install
+
+
+install nginx

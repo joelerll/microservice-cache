@@ -32,6 +32,8 @@ process.on('uncaughtException', err => {
   console.error(err.stack)
 })
 
+app.use('/', express.static('web'))
+
 app.use('/api/noticias_top/cache', function(req, res) {
 	res.setHeader('Content-Type', 'application/json');
     res.write('[');
