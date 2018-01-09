@@ -4,6 +4,9 @@ const morgan = require('morgan')
 const app = express()
 const http = require('http')
 const escapeStringRegexp = require('escape-string-regexp');
+var string = require("underscore.string");
+var iconv = require('iconv-lite');
+var jsesc = require('jsesc');
 const port = process.env.PORT || 3000
 const server = http.createServer(app)
 app.set('port', port)
@@ -35,20 +38,14 @@ app.use('/api/noticias_top/cache', function(req, res) {
 	var noticia = new messages.NoticiaRequest();
 	noticia.setTiponoticia("mi noticia");
 	var call = client.listaTopNoticias(noticia);
-	// var writable = getWritableStreamSomehow();
-	noticias = []
 	contador = 0
-
 	call.on('data', function(noticia) {
-
 		articulo = escapeStringRegexp(noticia.getArticulo().replace(/"/g, "'"))
 		titulo = escapeStringRegexp(noticia.getTitulo().replace(/"/g, "'"))
 		subtitulo = escapeStringRegexp(noticia.getSubtitulo())
-		// .replace(/[|&;$%@"<>()+,]\n/g, "");
-		// .replace(/\./g, '\\\\\\.')
-		res.write(`{"titulo": ${escapeStringRegexp(JSON.stringify(noticia.getTitulo()))},"id": ${noticia.getId()},"subtitulo": ${escapeStringRegexp(JSON.stringify(noticia.getSubtitulo()))},"articulo": ${escapeStringRegexp(JSON.stringify(noticia.getArticulo()))}}`);
+		res.write(jsesc(`{"titulo": "${escapeStringRegexp(noticia.getTitulo().replace(/[|&;$%@"<>()+,'-.]/g, ""))}","id": ${noticia.getId()},"subtitulo": "${jsesc(escapeStringRegexp(noticia.getSubtitulo().replace(/[|&;$%@"<>()+,"'-.]/g, "")))}","articulo": "${jsesc(escapeStringRegexp(noticia.getArticulo().replace(/[|&;$%@"<>()+,"'-.]/g, "")))}"}`),  {'json': true});
 		contador = contador + 1
-		if (contador != 10) {
+		if (contador != 10) { // cambiar por el numero maximo de noticias
 			res.write(`,`);
 		}
 	})

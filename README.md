@@ -89,7 +89,8 @@ __Actualizar las depencias de python__
 | html front web |   |   |   |
 | almacenamiento en cache de noticias redis |  x |   |   |
 | microservicio enpoint sin cache, limpiado de cache, limit time redis noticias |  |   |   |
-| Reverse Proxy/ Api gateway (Nginx, nodejs)  |   |   |   |
+| Api gateway nodejs  |  x |   |   |
+| Nginx  |  |   |   |
 | gRPC+protobuf  | x |   |   |
 | Setup AWS  |   |   |   |
 | bot generador de peticiones y guardar datos en archivo (latencia, througthput) o herramienta de benchmarking |   |   |   |
