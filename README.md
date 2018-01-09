@@ -13,11 +13,31 @@
 
 Ubuntu 16.04
 
+```sh
+> sudo apt-get install wget
 ```
+
+```sh
+> sudo wget -qO- https://raw.githubusercontent.com/joelerll/microservice-cache/master/scripts/install_root | bash
+```
+
+```sh
+> git clone https://github.com/joelerll/microservice-cache.git ~/microservice-cache
+```
+
+```sh
+> cd ~/microservice-cache
+```
+
+```sh
+> mysql -u root -p < scripts/create_database.sql
+```
+
+```sh
 > sudo make install
 ```
 
-```
+```sh
 > make
 ```
 

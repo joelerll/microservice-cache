@@ -13,7 +13,7 @@ server {
     listen 80;
     include /etc/nginx/mime.types;
     #server_name localhost;
-    root /home/joelerll/espol/sistemas_distribuidos/proyecto; # cambiar por la direccion de la carpeta del proyecto
+    root ~/microservice-cache; # cambiar por la direccion de la carpeta del proyecto
 
     location ~ ^/(web/) {
             access_log off;

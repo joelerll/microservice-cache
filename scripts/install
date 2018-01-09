@@ -1,13 +1,42 @@
-# python
-# python pip
-# wget
-# git
-# virtualenv -p python3 .python
-# zip unzip
-# wget http://mlg.ucd.ie/files/datasets/bbc-fulltext.zip
-# instalar mysql sin ingresar el root
+#!/bin/bash
 
-# crear base de datos
+# gcc make install
 
 
-# pip install PyMySQL
+# dataset
+wget http://mlg.ucd.ie/files/datasets/bbc-fulltext.zip
+unzip bbc-fulltext.zip
+rm bbc-fulltext.zip
+mv bbc dataset
+
+# redis
+wget http://download.redis.io/releases/redis-4.0.6.tar.gz
+tar -zxvf redis-4.0.6.tar.gz
+rm redis-4.0.6.tar.gz
+mv redis-4.0.6 .redis
+cd .redis
+make
+src/redis-server --daemonize yes
+cd ..
+
+# install dependencias nodejs
+
+npm install # no sudo
+npm -g install forever
+forever start -o out.log -e err.log gateway.js 
+forever start -c python microservice/server.py
+
+# vuejs descargar js
+wget https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js -O web/vue.min.js
+# matterialize descargar js
+wget https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css -O web/materialize.css
+wget https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js -O web/materialize.min.js
+mkdir web/fonts/roboto
+cd web/fonts/roboto
+wget https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/fonts/roboto/Roboto-Bold.woff
+wget https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/fonts/roboto/Roboto-Bold.woff2
+wget https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/fonts/roboto/Roboto-Light.woff
+wget https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/fonts/roboto/Roboto-Light.woff2
+wget https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/fonts/roboto/Roboto-Regular.woff2
+wget https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/fonts/roboto/Roboto-Thin.woff
+cd -

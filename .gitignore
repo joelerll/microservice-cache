@@ -12,3 +12,7 @@ __pycache__
 grpc-node/
 node_modules/
 .protobuf/
+*.log
+vue.min.js
+materialize.*
+fonts/**
