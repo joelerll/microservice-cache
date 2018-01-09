@@ -9,3 +9,6 @@ gen-*
 .grpc/
 grpc-python/
 __pycache__
+grpc-node/
+node_modules/
+.protobuf/
