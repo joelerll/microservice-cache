@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# gcc make install
-
-
 # dataset
 wget http://mlg.ucd.ie/files/datasets/bbc-fulltext.zip
 unzip bbc-fulltext.zip
@@ -19,18 +16,10 @@ make
 src/redis-server --daemonize yes
 cd ..
 
-# install dependencias nodejs
-
-npm install # no sudo
-npm -g install forever
-forever start -o out.log -e err.log gateway.js 
-forever start -c python microservice/server.py
-
-# vuejs descargar js
 wget https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js -O web/vue.min.js
-# matterialize descargar js
 wget https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css -O web/materialize.css
 wget https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js -O web/materialize.min.js
+mkdir web/fonts
 mkdir web/fonts/roboto
 cd web/fonts/roboto
 wget https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/fonts/roboto/Roboto-Bold.woff
@@ -39,4 +28,23 @@ wget https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/fonts/roboto/Rob
 wget https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/fonts/roboto/Roboto-Light.woff2
 wget https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/fonts/roboto/Roboto-Regular.woff2
 wget https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/fonts/roboto/Roboto-Thin.woff
-cd -
+cd ../../
+
+git clone https://github.com/google/protobuf.git .protobuf
+cd  .protobuf
+./autogen.sh
+./configure
+make
+make install
+make ldconfig
+
+cp script/.my.cnf ~/
+mysql --user="root"  < scripts/create_database.sql
+python3 scripts/create_database.py
+
+
+# install dependencias nodejs
+npm install
+npm -g install forever
+forever start -c python3 microservice/server.py
+forever start -o out.log -e err.log gateway.js 

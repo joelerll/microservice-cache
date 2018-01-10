@@ -11,35 +11,51 @@
 
 # Instalación
 
-Ubuntu 16.04
+```sh
+sudo apt-get install wget -y
+```
+
+* Dependencias basicas
 
 ```sh
-> sudo apt-get install wget
+sudo wget -qO- https://raw.githubusercontent.com/joelerll/microservice-cache/master/scripts/install_root | bash
+```
+
+* Copiar proyecto
+
+```sh
+git clone https://github.com/joelerll/microservice-cache.git ~/microservice-cache
 ```
 
 ```sh
-> sudo wget -qO- https://raw.githubusercontent.com/joelerll/microservice-cache/master/scripts/install_root | bash
+cd ~/microservice-cache
 ```
 
-```sh
-> git clone https://github.com/joelerll/microservice-cache.git ~/microservice-cache
-```
+* Dependencias root
 
 ```sh
-> cd ~/microservice-cache
+sudo make install
 ```
 
+* Otras dependencias
+
 ```sh
+make
+```
+<!-- ```sh
 > mysql -u root -p < scripts/create_database.sql
 ```
+ -->
 
-```sh
-> sudo make install
+<!-- ```sh
+> mysql -u root -p
 ```
 
 ```sh
-> make
+> source ~/scripts/create_database.sql;
 ```
+ -->
+
 
 # Instalación development
 
@@ -106,7 +122,7 @@ __Actualizar las depencias de python__
 
 |  Tarea | Joel  | Julio  |   |
 |---|---|---|---|
-| script instalacion dependecias o docker (Makefile) |   |   |   |
+| script instalacion dependecias o docker (Makefile) | x  |   |   |
 | almacenar noticias en base de datos (dataset), con contadores de acceso (Mysql) [D1](https://archive.ics.uci.edu/ml/datasets/News+Aggregator) [D2](http://mlg.ucd.ie/datasets/bbc.html)  | x |   |   |
 | html front web |   |   |   |
 | almacenamiento en cache de noticias redis |  x |   |   |

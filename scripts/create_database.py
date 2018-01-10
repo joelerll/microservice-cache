@@ -27,7 +27,7 @@ folders = ['business', 'entertainment', 'politics', 'sport', 'tech']
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 for folder_name in folders:
-	path = dir_path + "/../dataset/" + folder_name
+	path = dir_path + "/../dataset/bbc/" + folder_name
 	files_names = os.listdir(path)
 	for file_name in files_names:
 		file_object = codecs.open(path + "/" + file_name, "r",encoding='utf-8', errors='ignore')

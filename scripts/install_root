@@ -15,9 +15,9 @@ install_mysql() {
   else
     echo -e "\e[4mInstalando $1\e[0m"
     debconf-set-selections <<< 'mysql-server mysql-server/root_password password joelerll'
-	debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password joelerll'
-	apt-get update
-	apt-get install -y mysql-server
+  	debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password joelerll'
+  	apt-get update
+  	apt-get install -y mysql-server
   fi
 }
 
@@ -27,16 +27,40 @@ apt-get upgrade
 install make
 install git
 install gcc
+install curl
+
 # install wget
 install unzip
 install nginx
-install protobuf-compiler
-install pip3-python
+# install protobuf-compiler
+install python3-pip
+install autoconf
+install automake
+install libtool
+install g++
 
 # install nodejs
-install node
+# install nodejs
+curl -sL https://deb.nodesource.com/setup_9.x | bash -
+apt-get install -y nodejs
 
 
 
 # install mysql-server
 install_mysql mysql-server
+service mysql start
+
+echo '       _   _
+   _______________          |*\_/*|________
+  |  ___________  |        ||_/-\_|______  |
+  | |           | |        | |           | |
+  | |   0   0   | |        | |   0   0   | |
+  | |     -     | |        | |     -     | |
+  | |   \___/   | |        | |   \___/   | |
+  | |___     ___| |        | |___________| |
+  |_____|\_/|_____|        |_______________|
+    _|__|/ \|_|_.............._|________|_
+   / ********** \            / ********** \
+ /  ************  \        /  ************  \
+--------------------      --------------------
+'
