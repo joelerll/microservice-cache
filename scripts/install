@@ -38,8 +38,9 @@ make
 make install
 make ldconfig
 
-cp script/.my.cnf ~/
+cp scripts/.my.cnf ~/
 mysql --user="root"  < scripts/create_database.sql
+service mysql restart
 python3 scripts/create_database.py
 
 

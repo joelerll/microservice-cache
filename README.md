@@ -11,6 +11,14 @@
 
 # Instalación
 
+* Configurar EC2
+
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.CreateWebServer.html
+
+```sh
+sudo su
+```
+
 ```sh
 sudo apt-get install wget -y
 ```
@@ -55,6 +63,16 @@ make
 > source ~/scripts/create_database.sql;
 ```
  -->
+
+ * Si con python aparece el error  locale error: unsupported locale setting, usar los siguiente comandos
+
+```sh
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+sudo dpkg-reconfigure locales
+```
+
+Luego ESC para salir de la pantalla
 
 
 # Instalación development

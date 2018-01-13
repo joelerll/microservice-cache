@@ -5,4 +5,5 @@ pip3 install -r requirements.txt
 
 # install nginx config file
 cp cache.nginx /etc/nginx/sites-enabled
+rm /etc/nginx/sites-enable/default 
 service nginx restart
