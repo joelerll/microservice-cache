@@ -148,7 +148,7 @@ __Actualizar las depencias de python__
 | Api gateway nodejs  |  x |   |   |
 | Nginx config file  | x |   |   |
 | gRPC+protobuf  | x |   |   |
-| Setup AWS  |   |   |   |
+| Setup AWS  | x  |   |   |
 | bot generador de peticiones y guardar datos en archivo (latencia, througthput) o herramienta de benchmarking |   |   |   |
 | generador de graficas boxplot  |   |   |   |
 

@@ -37,6 +37,7 @@ cd  .protobuf
 make
 make install
 make ldconfig
+cd ..
 
 cp scripts/.my.cnf ~/
 mysql --user="root"  < scripts/create_database.sql
@@ -45,7 +46,7 @@ python3 scripts/create_database.py
 
 
 # install dependencias nodejs
-npm install
-npm -g install forever
-forever start -c python3 microservice/server.py
-forever start -o out.log -e err.log gateway.js 
+sudo npm install
+sudo npm -g install forever
+sudo forever start -c python3 microservice/server.py
+sudo forever start -o out.log -e err.log gateway.js 
