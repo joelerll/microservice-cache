@@ -1,9 +1,91 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Noticias</title>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
-<script type="text/javascript" src="./index.js"></script>
-</body>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">World News</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="">Top 10</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Top 10</a></li>
+      </ul>
+     <!-- <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>-->
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">World News</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Fresh news from around the world available at any time.</h5>
+      </div>
+      <div class="row center">       
+        <!--<a onclick="obtenerNoticias()" id="download-button" class="btn-large waves-effect waves-light orange">Get News</a>-->
+      </div>
+      <br><br>
+      <h3 class="header center orange-text">Top 10 News</h3>
+    </div>
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+        <div class="modal-content">
+          
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
+
+  <div class="container">
+    <div class="section">
+        <div class="row" id="articulos">
+            
+        </div>
+
+    </div>
+    <br><br>
+  </div>
+
+
+
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">World News</h5>
+          <p class="grey-text text-lighten-4">Proyecto de segundo parcial para la materia Sistemas Distribuidos - ESPOL (2017-2S).</p>
+          <p class="grey-text text-lighten-4">Autores: Joel Rodriguez y Julio Guilindro.</p>
+          <p class="grey-text text-lighten-4">Mas informacion: <a class="orange-text text-lighten-3" href="https://github.com/joelerll/microservice-cache">GitHub</a> </p>
+
+        </div>
+   
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="index.js"></script>
+  <script src="materialize.js"></script>
+  <script src="init.js"></script>
+  
+  </body>
 </html>
