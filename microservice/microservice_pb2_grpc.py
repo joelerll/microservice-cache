@@ -19,6 +19,11 @@ class NoticiasStub(object):
         request_serializer=microservice__pb2.NoticiaRequest.SerializeToString,
         response_deserializer=microservice__pb2.NoticiaReply.FromString,
         )
+    self.ListaTopNoticiasNoCache = channel.unary_stream(
+        '/noticias.Noticias/ListaTopNoticiasNoCache',
+        request_serializer=microservice__pb2.NoticiaRequest.SerializeToString,
+        response_deserializer=microservice__pb2.NoticiaReply.FromString,
+        )
     self.Ping = channel.unary_unary(
         '/noticias.Noticias/Ping',
         request_serializer=microservice__pb2.PingRequest.SerializeToString,
@@ -37,6 +42,13 @@ class NoticiasServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def ListaTopNoticiasNoCache(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
   def Ping(self, request, context):
     # missing associated documentation comment in .proto file
     pass
@@ -49,6 +61,11 @@ def add_NoticiasServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'ListaTopNoticias': grpc.unary_stream_rpc_method_handler(
           servicer.ListaTopNoticias,
+          request_deserializer=microservice__pb2.NoticiaRequest.FromString,
+          response_serializer=microservice__pb2.NoticiaReply.SerializeToString,
+      ),
+      'ListaTopNoticiasNoCache': grpc.unary_stream_rpc_method_handler(
+          servicer.ListaTopNoticiasNoCache,
           request_deserializer=microservice__pb2.NoticiaRequest.FromString,
           response_serializer=microservice__pb2.NoticiaReply.SerializeToString,
       ),

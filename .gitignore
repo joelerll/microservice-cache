@@ -15,4 +15,4 @@ node_modules/
 *.log
 vue.min.js
 materialize.*
-fonts/**
+web/fonts/**

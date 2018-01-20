@@ -34,6 +34,30 @@ process.on('uncaughtException', err => {
 
 app.use('/', express.static('web'))
 
+app.use('/no_cache', express.static('web/no_cache'))
+
+app.use('/api/noticias_top/no_cache', function(req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  res.write('[');
+  var noticia = new messages.NoticiaRequest();
+  noticia.setTiponoticia("mi noticia");
+  var call = client.listaTopNoticiasNoCache(noticia);
+  contador = 0
+  call.on('data', function(noticia) {
+    articulo = escapeStringRegexp(noticia.getArticulo().replace(/"/g, "'"))
+    titulo = escapeStringRegexp(noticia.getTitulo().replace(/"/g, "'"))
+    subtitulo = escapeStringRegexp(noticia.getSubtitulo())
+    res.write(jsesc(`{"titulo": "${escapeStringRegexp(noticia.getTitulo().replace(/[|&;$%@"<>()+,'-.]/g, ""))}","id": ${noticia.getId()},"subtitulo": "${jsesc(escapeStringRegexp(noticia.getSubtitulo().replace(/[|&;$%@"<>()+,"'-.]/g, "")))}","articulo": "${jsesc(escapeStringRegexp(noticia.getArticulo().replace(/[|&;$%@"<>()+,"'-.]/g, "")))}"}`),  {'json': true});
+    contador = contador + 1
+    if (contador != 10) { // cambiar por el numero maximo de noticias
+      res.write(`,`);
+    }
+  })
+  call.on('end', function(datos) {
+    res.end(']');
+  });
+})
+
 app.use('/api/noticias_top/cache', function(req, res) {
 	res.setHeader('Content-Type', 'application/json');
     res.write('[');

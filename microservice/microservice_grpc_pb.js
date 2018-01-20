@@ -10,11 +10,11 @@
 // }
 //
 // message Noticia {
-// 	string id = 1;
-// 	string titulo  = 2;
-// 	string subtitulo  = 3;
-// 	string articulo  = 4;
-// 	int32 contador = 5;
+//  string id = 1;
+//  string titulo  = 2;
+//  string subtitulo  = 3;
+//  string articulo  = 4;
+//  int32 contador = 5;
 // }
 // python -m grpc_tools.protoc --python_out=prueba --grpc_python_out=prueba prueba.proto
 // python -m grpc_tools.protoc  --python_out=prueba --proto_path=prueba prueba.proto
@@ -22,7 +22,7 @@
 //
 'use strict';
 var grpc = require('grpc');
-var microservice_microservice_pb = require('./microservice_pb.js');
+var microservice_microservice_pb = require('../microservice/microservice_pb.js');
 
 function serialize_noticias_NoticiaReply(arg) {
   if (!(arg instanceof microservice_microservice_pb.NoticiaReply)) {
@@ -74,6 +74,17 @@ var NoticiasService = exports.NoticiasService = {
   // Sends a greeting
   listaTopNoticias: {
     path: '/noticias.Noticias/ListaTopNoticias',
+    requestStream: false,
+    responseStream: true,
+    requestType: microservice_microservice_pb.NoticiaRequest,
+    responseType: microservice_microservice_pb.NoticiaReply,
+    requestSerialize: serialize_noticias_NoticiaRequest,
+    requestDeserialize: deserialize_noticias_NoticiaRequest,
+    responseSerialize: serialize_noticias_NoticiaReply,
+    responseDeserialize: deserialize_noticias_NoticiaReply,
+  },
+  listaTopNoticiasNoCache: {
+    path: '/noticias.Noticias/ListaTopNoticiasNoCache',
     requestStream: false,
     responseStream: true,
     requestType: microservice_microservice_pb.NoticiaRequest,
