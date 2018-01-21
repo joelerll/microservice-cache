@@ -78,16 +78,24 @@ class Microservice(microservice_pb2_grpc.NoticiasServicer):
     	noticias = BuscarTopNoticiaDiaRedis()
     	noticiasSerializado = []
     	if noticias:
-    		print('Noticas cargadas REDIS')
+    		print('Noticias cargadas REDIS')
     		noticiasSerializado = serializarNoticias(json.loads(noticias.decode()))
     	else:
-    		print('Noticas cargadas MYSQL')
+    		print('Noticias cargadas MYSQL')
     		topNoticias = ObtenerTopNoticiasMysql()
     		noticiasSerializado = serializarNoticias(topNoticias)
     		GuardarTopNoticiasRedis(json.dumps(topNoticias))
 
     	for noticia in noticiasSerializado:
     		yield noticia
+
+    def ListaTopNoticiasNoCache(self, request, context):
+        print('Noticias cargadas MYSQL: Nunca se cachearan')
+        topNoticias = ObtenerTopNoticiasMysql()
+        noticiasSerializado = serializarNoticias(topNoticias)
+        for noticia in noticiasSerializado:
+            yield noticia
+
 
     def Ping(self, request, context):
         return microservice_pb2.PingReply(message="Mi mensaje de prueba")

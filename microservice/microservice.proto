@@ -7,11 +7,11 @@
 // }
 
 // message Noticia {
-// 	string id = 1;
-// 	string titulo  = 2;
-// 	string subtitulo  = 3;
-// 	string articulo  = 4;
-// 	int32 contador = 5;
+//  string id = 1;
+//  string titulo  = 2;
+//  string subtitulo  = 3;
+//  string articulo  = 4;
+//  int32 contador = 5;
 // }
 // python -m grpc_tools.protoc --python_out=prueba --grpc_python_out=prueba prueba.proto
 // python -m grpc_tools.protoc  --python_out=prueba --proto_path=prueba prueba.proto
@@ -25,6 +25,7 @@ package noticias;
 service Noticias {
   // Sends a greeting
   rpc ListaTopNoticias (NoticiaRequest) returns (stream NoticiaReply) {}
+  rpc ListaTopNoticiasNoCache (NoticiaRequest) returns (stream NoticiaReply) {}
   rpc Ping (PingRequest) returns (PingReply) {}
 }
 
@@ -44,9 +45,9 @@ message NoticiaReply {
 }
 
 message PingRequest {
-	string message = 1;
+  string message = 1;
 }
 
 message PingReply {
-	string message = 1;
+  string message = 1;
 }

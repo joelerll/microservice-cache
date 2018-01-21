@@ -182,3 +182,12 @@ https://www.cloudfoundry.org/scaling-real-time-apps-on-cloud-foundry-using-node-
 
 https://codeburst.io/build-a-nodejs-cinema-api-gateway-and-deploying-it-to-docker-part-4-703c2b0dd269
 
+
+## Comandos utiles
+
+Si no se crean. Borrar los archivos generados porque parece que no genera los nuevos si existen archivos con el mismo nombre
+
+```sh
+python -m grpc_tools.protoc -I. --python_out=microservice --grpc_python_out=microservice microservice.proto
+grpc_tools_node_protoc --js_out=import_style=commonjs,binary:microservice --grpc_out=microservice --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` microservice/microservice.proto
+```

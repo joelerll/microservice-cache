@@ -10,7 +10,7 @@ def run():
     channel = grpc.insecure_channel('localhost:50051')
     stub = microservice_pb2_grpc.NoticiasStub(channel)
     # response = stub.Ping(microservice_pb2.PingRequest(message='you'))
-    noticias = stub.ListaTopNoticias(microservice_pb2.NoticiaRequest(tipoNoticia='you'))
+    noticias = stub.ListaTopNoticiasNoCache(microservice_pb2.NoticiaRequest(tipoNoticia='you'))
     for noticia in noticias:
     	print(noticia)
 

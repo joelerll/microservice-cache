@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='microservice.proto',
   package='noticias',
   syntax='proto3',
-  serialized_pb=_b('\n\x12microservice.proto\x12\x08noticias\"%\n\x0eNoticiaRequest\x12\x13\n\x0btipoNoticia\x18\x01 \x01(\t\"a\n\x0cNoticiaReply\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0e\n\x06titulo\x18\x02 \x01(\t\x12\x11\n\tsubtitulo\x18\x03 \x01(\t\x12\x10\n\x08\x61rticulo\x18\x04 \x01(\t\x12\x10\n\x08\x63ontador\x18\x05 \x01(\x05\"\x1e\n\x0bPingRequest\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x1c\n\tPingReply\x12\x0f\n\x07message\x18\x01 \x01(\t2\x8a\x01\n\x08Noticias\x12H\n\x10ListaTopNoticias\x12\x18.noticias.NoticiaRequest\x1a\x16.noticias.NoticiaReply\"\x00\x30\x01\x12\x34\n\x04Ping\x12\x15.noticias.PingRequest\x1a\x13.noticias.PingReply\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x12microservice.proto\x12\x08noticias\"%\n\x0eNoticiaRequest\x12\x13\n\x0btipoNoticia\x18\x01 \x01(\t\"a\n\x0cNoticiaReply\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0e\n\x06titulo\x18\x02 \x01(\t\x12\x11\n\tsubtitulo\x18\x03 \x01(\t\x12\x10\n\x08\x61rticulo\x18\x04 \x01(\t\x12\x10\n\x08\x63ontador\x18\x05 \x01(\x05\"\x1e\n\x0bPingRequest\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x1c\n\tPingReply\x12\x0f\n\x07message\x18\x01 \x01(\t2\xdb\x01\n\x08Noticias\x12H\n\x10ListaTopNoticias\x12\x18.noticias.NoticiaRequest\x1a\x16.noticias.NoticiaReply\"\x00\x30\x01\x12O\n\x17ListaTopNoticiasNoCache\x12\x18.noticias.NoticiaRequest\x1a\x16.noticias.NoticiaReply\"\x00\x30\x01\x12\x34\n\x04Ping\x12\x15.noticias.PingRequest\x1a\x13.noticias.PingReply\"\x00\x62\x06proto3')
 )
 
 
@@ -219,7 +219,7 @@ _NOTICIAS = _descriptor.ServiceDescriptor(
   index=0,
   options=None,
   serialized_start=233,
-  serialized_end=371,
+  serialized_end=452,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListaTopNoticias',
@@ -231,9 +231,18 @@ _NOTICIAS = _descriptor.ServiceDescriptor(
     options=None,
   ),
   _descriptor.MethodDescriptor(
+    name='ListaTopNoticiasNoCache',
+    full_name='noticias.Noticias.ListaTopNoticiasNoCache',
+    index=1,
+    containing_service=None,
+    input_type=_NOTICIAREQUEST,
+    output_type=_NOTICIAREPLY,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
     name='Ping',
     full_name='noticias.Noticias.Ping',
-    index=1,
+    index=2,
     containing_service=None,
     input_type=_PINGREQUEST,
     output_type=_PINGREPLY,
