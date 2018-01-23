@@ -139,7 +139,7 @@ __Actualizar las depencias de python__
 # Tareas
 
 |  Tarea | Joel  | Julio  |
-|---|---|---|---|
+|---|---|---|
 | script instalacion dependecias o docker (Makefile) | x  |   | 
 | almacenar noticias en base de datos (dataset), con contadores de acceso (Mysql) [D1](https://archive.ics.uci.edu/ml/datasets/News+Aggregator) [D2](http://mlg.ucd.ie/datasets/bbc.html)  | x |   | 
 | html front web |   | x  |   |
