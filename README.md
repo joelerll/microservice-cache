@@ -144,13 +144,14 @@ __Actualizar las depencias de python__
 | almacenar noticias en base de datos (dataset), con contadores de acceso (Mysql) [D1](https://archive.ics.uci.edu/ml/datasets/News+Aggregator) [D2](http://mlg.ucd.ie/datasets/bbc.html)  | x |   | 
 | html front web |   | x  |   |
 | almacenamiento en cache de noticias redis |  x |   | 
-| microservicio enpoint sin cache, limpiado de cache, limit time redis noticias |  | x  | 
+| microservicio enpoint sin cache, limpiado de cache, limit time redis noticias | x |  | 
 | Api gateway nodejs  |  x |   | 
 | Nginx config file  | x |   | 
 | gRPC+protobuf  | x |   |  
 | Setup AWS  | x  |   |  
 | bot generador de peticiones y guardar datos en archivo (latencia, througthput) o herramienta de benchmarking |   | x  |  
 | generador de graficas boxplot  |   | x  | 
+| Documentación y Reportes   |   | x  | 
 
 
 # Documento
