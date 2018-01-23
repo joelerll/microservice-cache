@@ -1,0 +1,156 @@
+Tests No Cache
+Herramienta: Siege 4.0.4
+Configuracion: 25 accesos concurrentes por 1 minuto.
+
+
+Test 1
+Transactions:		        3125 hits
+Availability:		       99.97 %
+Elapsed time:		       59.74 secs
+Data transferred:	       82.57 MB
+Response time:		        0.47 secs
+Transaction rate:	       52.31 trans/sec
+Throughput:		        1.38 MB/sec
+Concurrency:		       24.48
+Successful transactions:        3125
+Failed transactions:	           1
+Longest transaction:	        1.08
+Shortest transaction:	        0.22
+
+
+Test 2
+Transactions:		        3090 hits
+Availability:		       99.94 %
+Elapsed time:		       59.67 secs
+Data transferred:	       81.48 MB
+Response time:		        0.47 secs
+Transaction rate:	       51.78 trans/sec
+Throughput:		        1.37 MB/sec
+Concurrency:		       24.19
+Successful transactions:        3090
+Failed transactions:	           2
+Longest transaction:	        1.34
+Shortest transaction:	        0.22
+
+
+Test 3
+Transactions:		        3123 hits
+Availability:		      100.00 %
+Elapsed time:		       59.57 secs
+Data transferred:	       82.37 MB
+Response time:		        0.47 secs
+Transaction rate:	       52.43 trans/sec
+Throughput:		        1.38 MB/sec
+Concurrency:		       24.85
+Successful transactions:        3124
+Failed transactions:	           0
+Longest transaction:	        9.38
+Shortest transaction:	        0.22
+
+
+Test 4
+Transactions:		        3166 hits
+Availability:		      100.00 %
+Elapsed time:		       59.61 secs
+Data transferred:	       83.59 MB
+Response time:		        0.47 secs
+Transaction rate:	       53.11 trans/sec
+Throughput:		        1.40 MB/sec
+Concurrency:		       24.87
+Successful transactions:        3166
+Failed transactions:	           0
+Longest transaction:	        1.30
+Shortest transaction:	        0.22
+
+
+Test 5
+Transactions:		        3125 hits
+Availability:		      100.00 %
+Elapsed time:		       59.13 secs
+Data transferred:	       82.57 MB
+Response time:		        0.47 secs
+Transaction rate:	       52.85 trans/sec
+Throughput:		        1.40 MB/sec
+Concurrency:		       24.83
+Successful transactions:        3125
+Failed transactions:	           0
+Longest transaction:	        1.60
+Shortest transaction:	        0.22
+
+
+Test 6
+Transactions:		        3109 hits
+Availability:		      100.00 %
+Elapsed time:		       59.16 secs
+Data transferred:	       81.83 MB
+Response time:		        0.47 secs
+Transaction rate:	       52.55 trans/sec
+Throughput:		        1.38 MB/sec
+Concurrency:		       24.82
+Successful transactions:        3110
+Failed transactions:	           0
+Longest transaction:	        1.72
+Shortest transaction:	        0.22
+
+
+Test 7
+Transactions:		        3136 hits
+Availability:		      100.00 %
+Elapsed time:		       59.70 secs
+Data transferred:	       83.24 MB
+Response time:		        0.47 secs
+Transaction rate:	       52.53 trans/sec
+Throughput:		        1.39 MB/sec
+Concurrency:		       24.89
+Successful transactions:        3136
+Failed transactions:	           0
+Longest transaction:	        1.79
+Shortest transaction:	        0.22
+
+
+
+Test 8
+Transactions:		        3004 hits
+Availability:		      100.00 %
+Elapsed time:		       59.14 secs
+Data transferred:	       79.78 MB
+Response time:		        0.49 secs
+Transaction rate:	       50.79 trans/sec
+Throughput:		        1.35 MB/sec
+Concurrency:		       24.85
+Successful transactions:        3007
+Failed transactions:	           0
+Longest transaction:	        9.76
+Shortest transaction:	        0.22
+
+
+Test 9
+Transactions:		        3088 hits
+Availability:		      100.00 %
+Elapsed time:		       59.13 secs
+Data transferred:	       81.32 MB
+Response time:		        0.48 secs
+Transaction rate:	       52.22 trans/sec
+Throughput:		        1.38 MB/sec
+Concurrency:		       24.82
+Successful transactions:        3088
+Failed transactions:	           0
+Longest transaction:	        2.03
+Shortest transaction:	        0.22
+
+
+
+Test 10
+Transactions:		        3029 hits
+Availability:		      100.00 %
+Elapsed time:		       59.20 secs
+Data transferred:	       80.37 MB
+Response time:		        0.49 secs
+Transaction rate:	       51.17 trans/sec
+Throughput:		        1.36 MB/sec
+Concurrency:		       24.87
+Successful transactions:        3041
+Failed transactions:	           0
+Longest transaction:	        2.77
+Shortest transaction:	        0.22
+
